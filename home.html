@@ -21,8 +21,78 @@
     <!-- Main CSS -->
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <body class="flex justify-center items-center">
-    <h1>Home Page...</h1>
+  <body class="">
+    <header class="max-w-full shadow-sm bg-gray-100">
+      <div class="navbar w-10/12 mx-auto px-0">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">
+            <i class="fa-brands fa-github text-3xl"></i>
+            <h2 class="text-2xl font-extrabold">Github Issues Tracker</h2>
+          </a>
+        </div>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered w-24 md:w-auto"
+          />
+          <button class="btn btn-outline">Search</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="w-8/12 mx-auto flex mt-10">
+      <button class="btn">All</button>
+      <button class="btn">Open</button>
+      <button class="btn">Closed</button>
+    </section>
+
+    <section class="w-8/12 mx-auto mt-10">
+      <div class="issues-header w-full flex justify-between">
+        <div class="flex items-center gap-2.5">
+          <i class="fas fa-exclamation-circle text-orange-500 text-5xl"></i>
+          <div>
+            <h2 class="text-xl font-extrabold">50 issues</h2>
+            <p class="font-semibold text-gray-500">
+              Track & Manage your project issues.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 bg-green-600 rounded-full"></div>
+          <p class="font-semibold">Open</p>
+          <div class="w-3 h-3 bg-red-600 rounded-full"></div>
+          <p class="font-semibold">Close</p>
+        </div>
+      </div>
+      <div class="issues-container grid md:grid-cols-4 grid-cols-2 mt-10">
+        <div
+          class="issue-card p-5 w-full shadow-2xl rounded-2xl border-t-3 border-t-green-600"
+        >
+          <div class="card-header flex justify-between items-center w-full">
+            <div class="w-4 h-4 bg-green-600 rounded-full"></div>
+            <div class="indicator bg-amber-200 rounded-full py-1 px-2.5">
+              <p>High</p>
+            </div>
+          </div>
+          <h2 class="font-semibold text-xl my-3">
+            Fix navigation menu on mobile devices
+          </h2>
+          <p class="text-grey-500">The navigation menu doesn't collapse properly on mobile devices...</p>
+          <div class="bugs-area flex items-center justify-between my-3">
+            <div class=" bg-red-200 rounded-full py-1 px-2.5 flex gap-1 items-center p-1">
+              <i class="fas fa-bug"></i></i><p>BUGS</p>
+            </div>
+            <div class=" bg-amber-200 rounded-full py-1 px-2.5 flex gap-1 items-center p-1">
+              <i class="fas fa-question-circle"></i><p>HELP</p>
+            </div>
+          </div>
+          <h2 class="author font-semibold">John Doe</h2>
+          <h3 class="date mt-1">0/0/2000</h3>
+        </div>
+      </div>
+    </section>
+
     <script src="./src/scripts/app.js"></script>
   </body>
 </html>

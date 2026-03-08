@@ -1,2 +1,50 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@import "tailwindcss";
+
+
+@theme {
+
+  --color-brand-primary: #03256C; 
+  --color-brand-dark: #0a0a0a;
+  
+
+  --font-body:  "Lato", sans-serif;
+
+
+  --animate-subtle: fade-in 0.3s ease-in-out;
+}
+
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased bg-white text-slate-900;
+    font-feature-settings: "cv02", "cv03", "cv04";
+  }
+
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-primary/50;
+  }
+}
+
+@layer components {
+
+  .glass-card {
+    @apply border border-slate-100 bg-white shadow-sm 
+           rounded-2xl p-6 transition-shadow hover:shadow-md;
+  }
+
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -34,9 +34,8 @@
           <input
             type="text"
             placeholder="Search"
-            class="input input-bordered w-24 md:w-auto"
+            class="input searchBox input-bordered w-24 md:w-auto"
           />
-          <button class="btn btn-outline">Search</button>
         </div>
       </div>
     </header>
@@ -66,6 +65,14 @@
           <p class="font-semibold">Close</p>
         </div>
       </div>
+
+      <!-- Spinner -->
+      <div
+        class="spinner-container flex justify-center items-center mt-28 w-full hidden"
+      >
+        <span class="loading loading-spinner loading-xl"></span>
+      </div>
+
       <div
         class="issues-container grid md:grid-cols-4 grid-cols-2 mt-10 gap-6"
       ></div>
@@ -74,11 +81,9 @@
     <!-- Modal -->
 
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="my_modal.showModal()">open modal</button>
 
     <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
-
+      <div class="modal-box"></div>
     </dialog>
 
     <script src="./src/scripts/home.js"></script>

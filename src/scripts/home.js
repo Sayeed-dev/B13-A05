@@ -1,6 +1,8 @@
 // All Issues:
 let issueArray = [];
+// loader(true);
 const urlAllIssues = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
+
 fetch(urlAllIssues)
   .then((response) => response.json())
   .then((data) => {
@@ -36,7 +38,7 @@ const displayAllIssues = (issues) => {
               <p>${issue.priority ? issue.priority : 'Normal'}</p> 
             </div>
           </div> 
-          <h2 class="font-semibold text-xl my-3">
+          <h2 class="card-title font-semibold text-xl my-3">
             ${issue.title}
           </h2>
           <p class="text-grey-500">${issue.description}</p>
@@ -49,6 +51,7 @@ const displayAllIssues = (issues) => {
     `;
     issuesContainer.appendChild(card);
   });
+  loader(false);
 };
 
 // Individual Details Function
@@ -121,3 +124,32 @@ getLabels = (arry) => {
   );
   return labels.join('');
 };
+
+// Sppiner Fuction
+const loader = (status) => {
+  const issueContainer = document.querySelector('.issues-container');
+  const spinner = document.querySelector('.spinner-container');
+  if (status == true) {
+    issueContainer.classList.add('hidden');
+    spinner.classList.remove('hidden');
+  } else {
+    issueContainer.classList.remove('hidden');
+    spinner.classList.add('hidden');
+  }
+};
+
+// Search Fuctionalities
+
+const searchBox = document.querySelector('.searchBox');
+
+searchBox.addEventListener('keyup', (event) => {
+  const searchTerm = event.target.value.toLowerCase();
+
+  const filteredIssues = issueArray.filter((issue) => {
+    return (
+      issue.title.toLowerCase().includes(searchTerm) ||
+      issue.description.toLowerCase().includes(searchTerm)
+    );
+  });
+  displayAllIssues(filteredIssues);
+});

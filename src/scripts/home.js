@@ -1,8 +1,20 @@
+// Sppiner Fuction
+const loader = (status) => {
+  const issueContainer = document.querySelector('.issues-container');
+  const spinner = document.querySelector('.spinner-container');
+  if (status == true) {
+    issueContainer.classList.add('hidden');
+    spinner.classList.remove('hidden');
+  } else {
+    issueContainer.classList.remove('hidden');
+    spinner.classList.add('hidden');
+  }
+};
+
 // All Issues:
 let issueArray = [];
-// loader(true);
 const urlAllIssues = 'https://phi-lab-server.vercel.app/api/v1/lab/issues';
-
+loader(true);
 fetch(urlAllIssues)
   .then((response) => response.json())
   .then((data) => {
@@ -19,7 +31,6 @@ const getDetails = (id) => {
 };
 
 // Main Function
-
 const displayAllIssues = (issues) => {
   const issuesContainer = document.querySelector('.issues-container');
 
@@ -55,7 +66,6 @@ const displayAllIssues = (issues) => {
 };
 
 // Individual Details Function
-
 const getIndividualDetails = (details) => {
   const modal = document.getElementById('my_modal');
   modal.showModal();
@@ -93,9 +103,7 @@ const getIndividualDetails = (details) => {
 };
 
 // Button Functionalities
-
 const allBtn = document.querySelectorAll('.toogle');
-
 allBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
     allBtn.forEach((b) => {
@@ -125,23 +133,8 @@ getLabels = (arry) => {
   return labels.join('');
 };
 
-// Sppiner Fuction
-const loader = (status) => {
-  const issueContainer = document.querySelector('.issues-container');
-  const spinner = document.querySelector('.spinner-container');
-  if (status == true) {
-    issueContainer.classList.add('hidden');
-    spinner.classList.remove('hidden');
-  } else {
-    issueContainer.classList.remove('hidden');
-    spinner.classList.add('hidden');
-  }
-};
-
 // Search Fuctionalities
-
 const searchBox = document.querySelector('.searchBox');
-
 searchBox.addEventListener('keyup', (event) => {
   const searchTerm = event.target.value.toLowerCase();
 

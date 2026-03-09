@@ -10,6 +10,10 @@ fetch(urlAllIssues)
 
 const displayAllIssues = (issues) => {
   const issuesContainer = document.querySelector('.issues-container');
+
+  let issuesCounter = document.querySelector('.issues-counter');
+  issuesCounter.innerText = `${issues.length} issues`;
+
   issuesContainer.innerHTML = '';
 
   issues.forEach((issue) => {
@@ -26,13 +30,8 @@ const displayAllIssues = (issues) => {
             ${issue.title}
           </h2>
           <p class="text-grey-500">${issue.description}</p>
-          <div class="bugs-area flex items-center justify-between my-3">
-            <div class=" bg-red-200 rounded-full py-1 px-2.5 flex gap-1 items-center p-1">
-              <i class="fas fa-bug"></i><p>BUGS</p>
-            </div>
-            <div class=" bg-amber-200 rounded-full py-1 px-2.5 flex gap-1 items-center p-1">
-              <i class="fas fa-question-circle"></i><p>HELP</p>
-            </div>
+          <div class="labels-area flex items-center gap-2  my-3">
+            ${getLabels(issue.labels)}
           </div>
           <h2 class="author font-semibold">${issue.author || 'Unknown'}</h2>
           <h3 class="date mt-1">${issue.updatedAt || 'No Date'}</h3>
@@ -54,12 +53,23 @@ allBtn.forEach((btn) => {
     btn.classList.add('btn-neutral');
 
     const fileType = btn.innerText.toLowerCase();
-    if (fileType == 'all' ) {
-      displayAllIssues(issueArray)
-    }
-    else {
-      const filteredArray = issueArray.filter((issue) => issue.status == fileType)
-      displayAllIssues(filteredArray)
+    if (fileType == 'all') {
+      displayAllIssues(issueArray);
+    } else {
+      const filteredArray = issueArray.filter(
+        (issue) => issue.status == fileType,
+      );
+      displayAllIssues(filteredArray);
     }
   });
 });
+
+// Get Label Function
+let getLabels = [];
+getLabels = (arry) => {
+  const labels = arry.map(
+    (label) =>
+      `<span class="bg-amber-200 font-semibold p-1.5 rounded-md">${label}</span>`,
+  );
+  return labels.join('');
+};

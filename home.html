@@ -52,7 +52,7 @@
         <div class="flex items-center gap-2.5">
           <i class="fas fa-exclamation-circle text-orange-500 text-5xl"></i>
           <div>
-            <h2 class="text-xl font-extrabold">50 issues</h2>
+            <h2 class="issues-counter text-xl font-extrabold">50 issues</h2>
             <p class="font-semibold text-gray-500">
               Track & Manage your project issues.
             </p>
@@ -92,6 +92,23 @@
         </div> -->
       </div>
     </section>
+
+    <!-- Modal -->
+
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 class="text-lg font-bold">Hello!</h3>
+        <p class="py-4">Press ESC key or click the button below to close</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <script src="./src/scripts/home.js"></script>
   </body>
